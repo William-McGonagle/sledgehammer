@@ -26,10 +26,12 @@ jobs:
         run: dotnet build --no-restore
       - name: Test the Code
         run: dotnet test --no-build --verbosity normal
-      - name: Build and Bundle for MacOS
+      - name: Build for MacOS
         run: dotnet publish -r osx-x64 -p:PublishSingleFile=true --self-contained true -p:PublishReadyToRun=false
+      - name: Bundle for MacOS
+        run: mkdir Sledge.app; mkdir Sledge.app/Contents; mkdir Sledge.app/Contents/MacOS; mv "bin/Debug/net5.0/osx-x64/publish/render" "Sledge.app/Contents/MacOS/Sledge"
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "bin/Debug/net5.0/osx-x64/publish/render"
+          artifacts: "Sledge.app"
           token: ${{ secrets.GITHUB_TOKEN }}

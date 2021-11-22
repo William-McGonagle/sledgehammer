@@ -28,6 +28,6 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "release.tar.gz,foo/*.txt"
+#         artifacts: "release.tar.gz,foo/*.txt"
         body: "This is a test body"
         token: ${{ secrets.GITHUB_TOKEN }}

@@ -2,8 +2,8 @@ name: Build and Release
 
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - master
 
 jobs:
   build:
@@ -21,9 +21,3 @@ jobs:
         run: dotnet build --no-restore
       - name: Test the Code
         run: dotnet test --no-build --verbosity normal
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        with:
-          #         artifacts: "release.tar.gz,foo/*.txt"
-          body: "This is a test body"
-          token: ${{ secrets.GITHUB_TOKEN }}

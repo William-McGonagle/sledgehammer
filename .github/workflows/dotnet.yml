@@ -21,3 +21,9 @@ jobs:
         run: dotnet build --no-restore
       - name: Test the Code
         run: dotnet test --no-build --verbosity normal
+      - name: Build and Bundle for MacOS
+        run: dotnet publish -r osx-x64 -p:PublishSingleFile=true --self-contained true
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: bin/Debug/net5.0/osx-x64/publish/render

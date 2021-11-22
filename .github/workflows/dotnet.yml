@@ -1,9 +1,14 @@
-name: Build and Release
+name: Build
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "*"
+
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   build:
@@ -27,7 +32,4 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "bin/Debug/net5.0/osx-x64/publish/render"
-          bodyFile: "body.md"
           token: ${{ secrets.GITHUB_TOKEN }}
-          
-          

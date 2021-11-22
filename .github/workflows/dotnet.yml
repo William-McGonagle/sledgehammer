@@ -24,6 +24,10 @@ jobs:
       - name: Build and Bundle for MacOS
         run: dotnet publish -r osx-x64 -p:PublishSingleFile=true --self-contained true -p:PublishReadyToRun=false
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         with:
-          files: bin/Debug/net5.0/osx-x64/publish/render
+          artifacts: "bin/Debug/net5.0/osx-x64/publish/render"
+          bodyFile: "body.md"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+          

@@ -9,11 +9,12 @@
 </p>
 
 # Features
-- [X] Cross-Platform Support
-- [X] Flexible UI
-- [X] Settings
-  - [X] Custom Color Schemes
-  - [ ] Custom 
+
+- [x] Cross-Platform Support
+- [x] Flexible UI
+- [x] Settings
+  - [x] Color Schemes
+  - [ ] Key Bindings
 - [ ] Plugins
   - [ ] Reading Markdown Files
   - [ ] Reading Plugin Manifests

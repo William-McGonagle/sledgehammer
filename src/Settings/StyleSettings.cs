@@ -22,6 +22,13 @@ namespace Sledge
         public string iconColor = "333333";
         public string highlightIconColor = "555555";
 
+        public StyleSettingsData()
+        {
+
+            if (singleton == null) singleton = this;
+
+        }
+
         public StyleSettingsData(string path) : base(path)
         {
 

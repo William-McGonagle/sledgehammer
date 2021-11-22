@@ -11,6 +11,12 @@ namespace Sledge.Utility
     public class CFGObject
     {
 
+        public CFGObject()
+        {
+
+
+        }
+
         /// <summary>
         /// Generic constructor for any CFGObject. Creates a new object from location on disk.
         /// </summary>

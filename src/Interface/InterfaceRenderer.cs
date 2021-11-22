@@ -28,7 +28,7 @@ public class InterfaceRenderer
     private static Texture _texture;
     private static Texture _fonts;
 
-    public void Load()
+    public static void Load()
     {
 
         _vertexBufferObject = GL.GenBuffer();
@@ -38,10 +38,10 @@ public class InterfaceRenderer
         _vertexArrayObject = GL.GenVertexArray();
         GL.BindVertexArray(_vertexArrayObject);
 
-        _texture = Texture.LoadFromFile("./res/white.png");
-        _fonts = Texture.LoadFromFile("./test.png");
+        _texture = Texture.LoadFromFile(Application.PersistentDataPath() + "/res/white.png");
+        _fonts = Texture.LoadFromFile(Application.PersistentDataPath() + "/fonts/test.png");
 
-        _shader = new Shader("Shaders/ui.vert", "Shaders/ui.frag");
+        _shader = new Shader(Application.PersistentDataPath() + "/shaders/ui.vert", Application.PersistentDataPath() + "/shaders/ui.frag");
         _shader.Use();
 
         int vertexLocation = _shader.GetAttribLocation("aPosition");

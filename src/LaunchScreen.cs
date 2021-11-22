@@ -6,6 +6,7 @@ using OpenTK.Windowing.Desktop;
 using OpenTK.Mathematics;
 using System.Drawing;
 using System.Reflection;
+using System;
 
 namespace Sledge
 {
@@ -45,15 +46,15 @@ namespace Sledge
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
 
-            uiRenderer.Load();
+            InterfaceRenderer.Load();
 
             background = new Container(new FixedConstraint(600), new FixedConstraint(400), new Color("#" + StyleSettingsData.singleton.background2));
 
             background.incrementX = false;
 
-            background.children.Add(new Image(new FixedConstraint(600), new FixedConstraint(400), "./res/splash/background0.png", new Color("#" + StyleSettingsData.singleton.background1)));
-            background.children.Add(new Image(new FixedConstraint(600), new FixedConstraint(400), "./res/splash/background1.png", new Color("#" + StyleSettingsData.singleton.background0)));
-            background.children.Add(new Image(new FixedConstraint(600), new FixedConstraint(400), "./res/splash/text.png", new Color("#" + StyleSettingsData.singleton.background7)));
+            background.children.Add(new Image(new FixedConstraint(600), new FixedConstraint(400), Application.PersistentDataPath() + "/res/splash/background0.png", new Color("#" + StyleSettingsData.singleton.background1)));
+            background.children.Add(new Image(new FixedConstraint(600), new FixedConstraint(400), Application.PersistentDataPath() + "/res/splash/background1.png", new Color("#" + StyleSettingsData.singleton.background0)));
+            background.children.Add(new Image(new FixedConstraint(600), new FixedConstraint(400), Application.PersistentDataPath() + "/res/splash/text.png", new Color("#" + StyleSettingsData.singleton.background7)));
 
         }
 

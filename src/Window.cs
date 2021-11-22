@@ -41,11 +41,11 @@ namespace Sledge
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
 
-            uiRenderer.Load();
+            InterfaceRenderer.Load();
 
-            closeTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), "./res/icons/close.png");
-            minTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), "./res/icons/min.png");
-            maxTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), "./res/icons/max.png");
+            closeTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), Application.PersistentDataPath() + "/res/icons/close.png");
+            minTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), Application.PersistentDataPath() + "/res/icons/min.png");
+            maxTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), Application.PersistentDataPath() + "/res/icons/max.png");
 
             closeTexture.onClick += Close;
             minTexture.onClick += delegate () { WindowState = WindowState.Minimized; };

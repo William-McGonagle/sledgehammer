@@ -20,7 +20,7 @@ public class Container : InterfaceObject
         widthConstraint = new FixedConstraint(0);
         heightConstraint = new FixedConstraint(0);
 
-        texture = Texture.LoadFromFile("./res/white.png");
+        texture = Texture.LoadFromFile(Application.PersistentDataPath() + "/res/white.png");
 
     }
 
@@ -30,7 +30,7 @@ public class Container : InterfaceObject
         widthConstraint = new FixedConstraint(0);
         heightConstraint = new FixedConstraint(0);
 
-        texture = Texture.LoadFromFile("./res/white.png");
+        texture = Texture.LoadFromFile(Application.PersistentDataPath() + "/res/white.png");
         defaultColor = color;
 
     }
@@ -41,7 +41,7 @@ public class Container : InterfaceObject
         widthConstraint = _width;
         heightConstraint = _height;
 
-        texture = Texture.LoadFromFile("./res/white.png");
+        texture = Texture.LoadFromFile(Application.PersistentDataPath() + "/res/white.png");
         defaultColor = color;
 
     }

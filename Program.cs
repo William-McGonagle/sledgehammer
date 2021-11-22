@@ -37,13 +37,18 @@ namespace Sledge
                         }
                     }
                 }
-                bitmap.Save("test.png");
+                bitmap.Save(Application.PersistentDataPath() + "/fonts/test.png");
             }
             // Process.Start(Settings.FontBitmapFilename);
         }
 
         private static void Main()
         {
+
+            Application.ConfigureSystem();
+
+            SettingsData settings = new SettingsData(Application.PersistentDataPath() + "/settings.cfg");
+            StyleSettingsData styleSettings = new StyleSettingsData(Application.PersistentDataPath() + "/" + settings.styleScheme);
 
             GenerateFontImage();
 
@@ -53,9 +58,6 @@ namespace Sledge
                 Title = "Sledge - v1.0.0",
                 Flags = ContextFlags.ForwardCompatible,
             };
-
-            SettingsData settings = new SettingsData("./stored/settings.cfg");
-            StyleSettingsData styleSettings = new StyleSettingsData(settings.styleScheme);
 
 #if true
 

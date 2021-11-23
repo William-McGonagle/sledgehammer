@@ -27,6 +27,7 @@ namespace Sledge
 
             CenterWindow();
 
+            // 
             WindowBorder = WindowBorder.Hidden;
 
         }

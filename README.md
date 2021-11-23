@@ -3,6 +3,7 @@
 <p align="center">
 <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/william-mcgonagle/sledgehammer/Build">
 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/william-mcgonagle/sledgehammer/total">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/william-mcgonagle/sledgehammer">
 <img alt="GitHub issues" src="https://img.shields.io/github/issues/william-mcgonagle/sledgehammer">
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/william-mcgonagle/sledgehammer">
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/william-mcgonagle/sledgehammer">

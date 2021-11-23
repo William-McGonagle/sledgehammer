@@ -1,11 +1,10 @@
 using Sledge;
 using System.Runtime.InteropServices;
 using System.IO;
+using System;
 
 public class Application
 {
-
-    public static string version = "1.0.0";
 
     public static void ConfigureSystem()
     {
@@ -31,10 +30,18 @@ public class Application
 
     }
 
+    public static string GetVersion()
+    {
+
+        return "1.0.0";
+        // https://api.github.com/repos/william-mcgonagle/sledgehammer/releases/latest
+
+    }
+
     public static string PersistentDataPath()
     {
 
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) return $"./Library/Application Support/amvc/sledge";
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) return $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/Library/Application Support/amvc/sledge";
         return "";
 
     }

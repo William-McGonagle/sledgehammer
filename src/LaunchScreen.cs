@@ -19,13 +19,11 @@ namespace Sledge
 
         double runTime = 0;
 
-        public string version = "1.0.0";
-
         public LaunchScreen()
             : base(GameWindowSettings.Default, new NativeWindowSettings()
             {
                 Size = new Vector2i(600, 400),
-                Title = "Sledge - v1.0.0",
+                Title = $"Sledge - v{Application.GetVersion()}",
                 Flags = ContextFlags.ForwardCompatible,
             })
         {
@@ -70,7 +68,7 @@ namespace Sledge
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
             background.Render(this, 0, 0);
-            InterfaceRenderer.DrawText(this, 600 - ((version.Length + 2) * 8), 380, 8, "v" + version, new Color("#" + StyleSettingsData.singleton.background7));
+            InterfaceRenderer.DrawText(this, 600 - ((Application.GetVersion().Length + 2) * 8), 380, 8, "v" + Application.GetVersion(), new Color("#" + StyleSettingsData.singleton.background7));
 
             SwapBuffers();
 

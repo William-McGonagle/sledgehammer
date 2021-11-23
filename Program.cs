@@ -6,6 +6,7 @@ using System.Threading;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
+using Sledge.Plugin;
 
 namespace Sledge
 {
@@ -46,6 +47,7 @@ namespace Sledge
         {
 
             Application.ConfigureSystem();
+            PluginManager.GetPlugins();
 
             SettingsData settings = new SettingsData(Application.PersistentDataPath() + "/settings.cfg");
             StyleSettingsData styleSettings = new StyleSettingsData(Application.PersistentDataPath() + "/" + settings.styleScheme);

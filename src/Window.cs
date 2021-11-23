@@ -21,6 +21,8 @@ namespace Sledge
         Container sidebar;
         Container main;
 
+        Container colors;
+
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings)
             : base(gameWindowSettings, nativeWindowSettings)
         {
@@ -63,6 +65,19 @@ namespace Sledge
             sidebar.children.Add(closeTexture);
             sidebar.children.Add(minTexture);
 
+            colors = new Container(new FixedConstraint(200), new FixedConstraint(40 * 7), new Color("#FFFFFF"));
+
+            colors.incrementX = false;
+            colors.incrementY = true;
+
+            colors.children.Add(new Container(new FixedConstraint(200), new FixedConstraint(40), new Color("#" + StyleSettingsData.singleton.yellow)));
+            colors.children.Add(new Container(new FixedConstraint(200), new FixedConstraint(40), new Color("#" + StyleSettingsData.singleton.orange)));
+            colors.children.Add(new Container(new FixedConstraint(200), new FixedConstraint(40), new Color("#" + StyleSettingsData.singleton.red)));
+            colors.children.Add(new Container(new FixedConstraint(200), new FixedConstraint(40), new Color("#" + StyleSettingsData.singleton.magenta)));
+            colors.children.Add(new Container(new FixedConstraint(200), new FixedConstraint(40), new Color("#" + StyleSettingsData.singleton.violet)));
+            colors.children.Add(new Container(new FixedConstraint(200), new FixedConstraint(40), new Color("#" + StyleSettingsData.singleton.blue)));
+            colors.children.Add(new Container(new FixedConstraint(200), new FixedConstraint(40), new Color("#" + StyleSettingsData.singleton.cyan)));
+
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -76,6 +91,8 @@ namespace Sledge
 
             sidebar.Render(this, 0, 0);
             main.Render(this, 260, 0);
+
+            colors.Render(this, 280, 20);
 
             InterfaceRenderer.DrawText(this, 20, 40, 10, "Welcome to Sledge... ", new Color("#" + StyleSettingsData.singleton.background7));
 

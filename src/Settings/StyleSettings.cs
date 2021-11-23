@@ -19,8 +19,16 @@ namespace Sledge
         public string background6 = "333333";
         public string background7 = "000000";
 
-        public string iconColor = "333333";
-        public string highlightIconColor = "555555";
+        public string yellow = "ffff00";
+        public string orange = "ff5f00";
+        public string red = "ff0000";
+        public string magenta = "ff00ff";
+        public string violet = "5f00ff";
+        public string blue = "0000ff";
+        public string cyan = "00ffff";
+        public string green = "00ff00";
+
+        // Constructors
 
         public StyleSettingsData()
         {

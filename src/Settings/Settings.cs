@@ -10,6 +10,8 @@ namespace Sledge
 
         public string styleScheme = "./styles/original.cfg";
 
+        // Constructors
+
         public SettingsData()
         {
 

@@ -1,3 +1,6 @@
+using System;
+using System.Diagnostics;
+using System.IO;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
@@ -117,20 +120,84 @@ namespace Sledge.Windows
             generalScreen = new Container(
                 new FixedConstraint(800 - 260),
                 new FixedConstraint(600),
-                new Color("#FF0000")
+                new Color("#" + StyleSettingsData.singleton.background0),
+                new InterfaceObject[] {
+
+                }
             );
 
             keyScreen = new Container(
                 new FixedConstraint(800 - 260),
                 new FixedConstraint(600),
-                new Color("#0000FF")
-            );
+                new Color("#" + StyleSettingsData.singleton.background0),
+                new InterfaceObject[] {
+                    new Text(
+                        new FixedConstraint(800 - 260),
+                        new FixedConstraint(80),
+                        "Key Bindings"
+                    )
+                }
+            )
+            {
+                incrementX = false,
+                incrementY = true
+            };
+
+            string[] colorSchemeFiles = Directory.GetFiles(Application.PersistentDataPath() + "/styles");
+            InterfaceObject[] colorSchemeButtons = new InterfaceObject[colorSchemeFiles.Length];
+
+            for (int i = 0; i < colorSchemeButtons.Length; i++)
+            {
+
+                int currentNum = i;
+
+                colorSchemeButtons[i] = new TextBackgroundButton(
+                    new FixedConstraint(500),
+                    new FixedConstraint(40),
+                    Path.GetFileName(colorSchemeFiles[i])
+                )
+                {
+                    onClick = delegate ()
+                    {
+
+                        SettingsData.singleton.styleScheme = "./styles/" + Path.GetFileName(colorSchemeFiles[currentNum]);
+                        SettingsData.singleton.Save(Application.PersistentDataPath() + "/settings.cfg");
+
+                        StyleSettingsData.singleton = new StyleSettingsData(Application.PersistentDataPath() + "/styles/" + Path.GetFileName(colorSchemeFiles[currentNum]));
+
+                        this.OnLoad();
+
+                    }
+                };
+
+            }
 
             colorScreen = new Container(
                 new FixedConstraint(800 - 260),
                 new FixedConstraint(600),
-                new Color("#00FF00")
-            );
+                new Color("#" + StyleSettingsData.singleton.background0),
+                new InterfaceObject[] {
+                    new Text(
+                        new FixedConstraint(800 - 260),
+                        new FixedConstraint(80),
+                        "Color Schemes"
+                    ),
+                    new Container(
+                        new FixedConstraint(500),
+                        new FixedConstraint(400),
+                        new Color("#" + StyleSettingsData.singleton.background0),
+                        colorSchemeButtons
+                    ) {
+                        incrementX = false,
+                        incrementY = true,
+                        padding = 20
+                    }
+                }
+            )
+            {
+                incrementX = false,
+                incrementY = true
+            };
 
         }
 

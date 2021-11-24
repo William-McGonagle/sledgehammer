@@ -12,6 +12,8 @@ public class Container : InterfaceObject
     public bool incrementX = true;
     public bool incrementY = false;
 
+    public int padding = 0;
+
     public List<InterfaceObject> children = new List<InterfaceObject>();
 
     public Container()
@@ -75,7 +77,7 @@ public class Container : InterfaceObject
         for (int i = 0; i < children.Count; i++)
         {
 
-            children[i].Render(window, curX, curY);
+            children[i].Render(window, curX + padding, curY + padding);
 
             if (incrementX) curX += children[i].widthConstraint.GetSize();
             if (incrementY) curY += children[i].heightConstraint.GetSize();

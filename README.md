@@ -13,7 +13,15 @@
 
 <img alt="Features" src="https://github.com/William-McGonagle/sledgehammer/blob/master/.github/media/headers/features.png?raw=true">
 
-Sledge has countless features including modularity, mutability, and a modern codebase. It will soon have the ability to utilize plugins, which will enhance the editing experience and bring limitless oportunities to sledge's users. 
+Sledge has countless features including modularity, mutability, and a modern codebase. It will soon have the ability to utilize plugins, which will enhance the editing experience and bring limitless oportunities to sledge's users.
+
+### Modularity and Mutability
+
+Sledge is fully data-driven. This means that all data in sledge can be changed by the user at any point. If you don't like the look of sledge, change the color scheme. If you don't think the font is good on your eyes, switch it to something different. Sledge is also fully built on plugins so if there is something that you think should be changed or added but it has not happened yet, you can download or create a plugin to do it.
+
+### Request Features
+
+Sledge is a community driven project. Any feature that you want can be submitted to our team through an issue. To request a new feature, please fill out an issue [here](https://github.com/William-McGonagle/sledgehammer/issues), and tell us what you want, how you think it should be implemented, and how it would feel it use.
 
 &nbsp;
 
@@ -27,9 +35,9 @@ Sledge has countless features including modularity, mutability, and a modern cod
 
 <img alt="License" src="https://github.com/William-McGonagle/sledgehammer/blob/master/.github/media/headers/license.png?raw=true">
 
-Copyright 2021 AMVC-Gaming
+Copyright © 2021 AMVC-Gaming
 
-An entity that makes an excess of $12,500 quarterly must purchase an enterprise license. To purchase an enterprise license, please contact [William McGonagle](mailto:wpmcgonagle@gmail.com). 
+An entity that makes an excess of $12,500 quarterly must purchase an enterprise license. To purchase an enterprise license, please contact [William McGonagle](mailto:wpmcgonagle@gmail.com).
 
 Any individual or entity, that makes below $12,500 quarterly, is free to modify, use, compile, or publish this software, in source code form, for any purpose, commercial or non-commercial, and by any means, provided that the above copyright notice and this permission notice appear in all copies.
 

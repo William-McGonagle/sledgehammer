@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
 using Sledge;
 using Sledge.Common;
 
 public class Topbar : InterfaceObject
 {
+
+    public Vector2 mouseLockPosition;
+    public bool mouseLocked = false;
 
     public Button closeButton;
     public Button minButton;
@@ -76,6 +80,32 @@ public class Topbar : InterfaceObject
 
     public override void Render(GameWindow window, int x, int y)
     {
+
+        if (Input.MouseX > x && Input.MouseY > y && Input.MouseX < x + background.widthConstraint.GetSize() && Input.MouseY < y + background.heightConstraint.GetSize() && Input.GetMouseButtonDown(0))
+        {
+
+            mouseLockPosition = window.MouseState.Position;
+            mouseLocked = true;
+
+        }
+
+        if (mouseLocked)
+        {
+
+            if (Input.GetMouseButton(0))
+            {
+
+                window.Location += (Vector2i)(window.MouseState.Position - mouseLockPosition);
+
+            }
+            else
+            {
+
+                mouseLocked = false;
+
+            }
+
+        }
 
         if (drawBackground)
         {

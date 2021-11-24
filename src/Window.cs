@@ -14,9 +14,7 @@ namespace Sledge
         Screen currentScreen = new Screen("Start");
         InterfaceRenderer uiRenderer = new InterfaceRenderer();
 
-        Button closeTexture;
-        Button minTexture;
-        Button maxTexture;
+        Topbar topbar;
 
         Container sidebar;
         Container main;
@@ -45,25 +43,10 @@ namespace Sledge
 
             InterfaceRenderer.Load();
 
-            closeTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), Application.PersistentDataPath() + "/res/icons/close.png");
-            minTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), Application.PersistentDataPath() + "/res/icons/min.png");
-            maxTexture = new Button(new FixedConstraint(20), new FixedConstraint(20), Application.PersistentDataPath() + "/res/icons/max.png");
-
-            closeTexture.onClick += Close;
-            minTexture.onClick += delegate () { WindowState = WindowState.Minimized; };
-            maxTexture.onClick += delegate ()
-            {
-                if (WindowState == WindowState.Fullscreen)
-                    WindowState = WindowState.Normal;
-                else
-                    WindowState = WindowState.Fullscreen;
-            };
+            topbar = new Topbar(this) { maxButtonEnabled = false };
 
             sidebar = new Container(new FixedConstraint(260), new FixedConstraint(Size.Y), new Color("#" + StyleSettingsData.singleton.background1));
             main = new Container(new FixedConstraint(Size.X - 260), new FixedConstraint(Size.Y), new Color("#" + StyleSettingsData.singleton.background0));
-
-            sidebar.children.Add(closeTexture);
-            sidebar.children.Add(minTexture);
 
             colors = new Container(new FixedConstraint(200), new FixedConstraint(40 * 7), new Color("#FFFFFF"));
 
@@ -91,6 +74,7 @@ namespace Sledge
 
             sidebar.Render(this, 0, 0);
             main.Render(this, 260, 0);
+            topbar.Render(this, 0, 0);
 
             colors.Render(this, 280, 20);
 
@@ -103,13 +87,6 @@ namespace Sledge
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
             base.OnUpdateFrame(e);
-
-            var input = KeyboardState;
-
-            if (input.IsKeyDown(Keys.Escape))
-            {
-                Close();
-            }
         }
 
         protected override void OnResize(ResizeEventArgs e)

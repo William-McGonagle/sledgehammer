@@ -46,6 +46,19 @@ public class Container : InterfaceObject
 
     }
 
+    public Container(Constraint _width, Constraint _height, Color color, InterfaceObject[] _children)
+    {
+
+        widthConstraint = _width;
+        heightConstraint = _height;
+
+        children = new List<InterfaceObject>(_children);
+
+        texture = Texture.LoadFromFile(Application.PersistentDataPath() + "/res/white.png");
+        defaultColor = color;
+
+    }
+
     public override void Render(GameWindow window, int x, int y)
     {
 

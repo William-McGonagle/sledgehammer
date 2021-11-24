@@ -8,14 +8,12 @@ namespace Sledge
 
         // Plugin Data
         public string name = "New Plugin";
+        public string path = "plugin/src/Window.cs";
 
         // Constructors
         public PluginConfigData() { }
         public PluginConfigData(string path) : base(path) { }
 
-
     }
-
-
 
 }

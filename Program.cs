@@ -7,6 +7,7 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using Sledge.Plugin;
+using Sledge.Windows;
 
 namespace Sledge
 {
@@ -47,7 +48,7 @@ namespace Sledge
         {
 
             Application.ConfigureSystem();
-            PluginManager.GetPlugins();
+            PluginManager.Load();
 
             SettingsData settings = new SettingsData(Application.PersistentDataPath() + "/settings.cfg");
             StyleSettingsData styleSettings = new StyleSettingsData(Application.PersistentDataPath() + "/" + settings.styleScheme);
@@ -61,27 +62,31 @@ namespace Sledge
                 Flags = ContextFlags.ForwardCompatible,
             };
 
-#if true
-
-            using (var launch = new LaunchScreen())
+            if (settings.useLaunchScreen)
             {
 
-                launch.Run();
+                using (var launch = new LaunchScreen())
+                {
 
-                // Thread.Sleep(2000);
+                    launch.Run();
 
-                launch.Close();
+                }
 
             }
 
-#endif
-
-            using (var window = new Window(GameWindowSettings.Default, nativeWindowSettings))
+            using (var settingsWindow = new SettingsWindow())
             {
 
-                window.Run();
+                settingsWindow.Run();
 
             }
+
+            // using (var window = new Window(GameWindowSettings.Default, nativeWindowSettings))
+            // {
+
+            //     window.Run();
+
+            // }
 
         }
     }

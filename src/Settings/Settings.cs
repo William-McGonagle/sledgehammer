@@ -9,6 +9,7 @@ namespace Sledge
         public static SettingsData singleton;
 
         public string styleScheme = "./styles/original.cfg";
+        public bool useLaunchScreen = true;
 
         // Constructors
 

@@ -13,8 +13,8 @@ public class Application
         {
 
             // Check Directories Exist
-            if (!Directory.Exists("./Library/Application Support/amvc")) Directory.CreateDirectory("./Library/Application Support/amvc");
-            if (!Directory.Exists("./Library/Application Support/amvc/sledge")) Directory.CreateDirectory("./Library/Application Support/amvc/sledge");
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Library/Application Support/amvc")) Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Library/Application Support/amvc");
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Library/Application Support/amvc/sledge")) Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Library/Application Support/amvc/sledge");
 
             // Check that Settings Object Exists
             if (!File.Exists(PersistentDataPath() + "/settings.cfg")) new SettingsData().Save(PersistentDataPath() + "/settings.cfg");
@@ -26,6 +26,9 @@ public class Application
             // Check that Fonts Exist
             if (!Directory.Exists(PersistentDataPath() + "/fonts")) Directory.CreateDirectory(PersistentDataPath() + "/fonts");
 
+            // Check that Plugins Exist
+            if (!Directory.Exists(PersistentDataPath() + "/plugins")) Directory.CreateDirectory(PersistentDataPath() + "/plugins");
+
         }
 
     }
@@ -33,7 +36,7 @@ public class Application
     public static string GetVersion()
     {
 
-        return "1.0.0";
+        return "1.2.13";
         // https://api.github.com/repos/william-mcgonagle/sledgehammer/releases/latest
 
     }

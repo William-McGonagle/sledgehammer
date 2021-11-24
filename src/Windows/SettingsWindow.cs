@@ -165,6 +165,8 @@ namespace Sledge.Windows
 
                         StyleSettingsData.singleton = new StyleSettingsData(Application.PersistentDataPath() + "/styles/" + Path.GetFileName(colorSchemeFiles[currentNum]));
 
+                        ConsoleWindow.WriteLine("set_color_scheme " + Path.GetFileName(colorSchemeFiles[currentNum]));
+
                         this.OnLoad();
 
                     }

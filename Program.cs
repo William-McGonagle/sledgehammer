@@ -47,12 +47,17 @@ namespace Sledge
         private static void Main()
         {
 
+            ConsoleWindow.WriteLine("Configuring Application Paths...");
             Application.ConfigureSystem();
+
+            ConsoleWindow.WriteLine("Configuring Plugins...");
             PluginManager.Load();
 
+            ConsoleWindow.WriteLine("Loading Settings...");
             SettingsData settings = new SettingsData(Application.PersistentDataPath() + "/settings.cfg");
             StyleSettingsData styleSettings = new StyleSettingsData(Application.PersistentDataPath() + "/" + settings.styleScheme);
 
+            ConsoleWindow.WriteLine("Generating Fonts...");
             GenerateFontImage();
 
             var nativeWindowSettings = new NativeWindowSettings()
@@ -74,10 +79,10 @@ namespace Sledge
 
             }
 
-            using (var settingsWindow = new SettingsWindow())
+            using (var consoleWindow = new ConsoleWindow())
             {
 
-                settingsWindow.Run();
+                consoleWindow.Run();
 
             }
 

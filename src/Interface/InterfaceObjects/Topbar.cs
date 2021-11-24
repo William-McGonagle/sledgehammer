@@ -71,8 +71,8 @@ public class Topbar : InterfaceObject
         maxButton.onClick += delegate ()
         {
 
-            if (window.WindowState == OpenTK.Windowing.Common.WindowState.Normal) window.WindowState = OpenTK.Windowing.Common.WindowState.Maximized;
-            if (window.WindowState == OpenTK.Windowing.Common.WindowState.Maximized) window.WindowState = OpenTK.Windowing.Common.WindowState.Normal;
+            if (window.WindowState == OpenTK.Windowing.Common.WindowState.Normal) window.WindowState = OpenTK.Windowing.Common.WindowState.Fullscreen;
+            if (window.WindowState == OpenTK.Windowing.Common.WindowState.Fullscreen) window.WindowState = OpenTK.Windowing.Common.WindowState.Normal;
 
         };
 

@@ -6,6 +6,8 @@ public class Input
     public static float MouseX;
     public static float MouseY;
 
+    public static float mouseScrollWheel;
+
     public static bool[] MouseClick;
     public static bool[] MouseDown;
     public static bool[] MouseUp;
@@ -15,6 +17,8 @@ public class Input
 
         MouseX = mouse.X;
         MouseY = mouse.Y;
+
+        mouseScrollWheel = mouse.ScrollDelta.Y;
 
         MouseDown = new bool[] {
             mouse.IsButtonDown(MouseButton.Left) && !MouseClick[0],

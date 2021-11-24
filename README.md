@@ -19,6 +19,14 @@ Sledge has countless features including modularity, mutability, and a modern cod
 
 Sledge is fully data-driven. This means that all data in sledge can be changed by the user at any point. If you don't like the look of sledge, change the color scheme. If you don't think the font is good on your eyes, switch it to something different. Sledge is also fully built on plugins so if there is something that you think should be changed or added but it has not happened yet, you can download or create a plugin to do it.
 
+### Multiplayer Framework
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+### Plugins and Game Support
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 ### Request Features
 
 Sledge is a community driven project. Any feature that you want can be submitted to our team through an issue. To request a new feature, please fill out an issue [here](https://github.com/William-McGonagle/sledgehammer/issues), and tell us what you want, how you think it should be implemented, and how it would feel it use.

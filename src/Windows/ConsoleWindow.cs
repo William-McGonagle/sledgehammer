@@ -69,7 +69,29 @@ namespace Sledge.Windows
                 new FixedConstraint(800),
                 new FixedConstraint(30),
                 "Test"
-            );
+            )
+            {
+
+                onEnter = delegate (string inputData)
+                {
+
+                    // Clear Input
+                    input.data = "";
+
+                    // Add Input Data to Console
+                    WriteLine("$~ " + inputData);
+
+                    // Check for Commands
+                    if (inputData == "close")
+                    {
+
+                        Close();
+
+                    }
+
+                }
+
+            };
 
             background = new Container(
                 new FixedConstraint(800),

@@ -1,3 +1,4 @@
+using System;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
 public class Input
@@ -6,17 +7,59 @@ public class Input
     public static float MouseX;
     public static float MouseY;
 
+    public static string currentText;
+    public static bool deleteKey;
+    public static bool enterKey;
+
     public static float mouseScrollWheel;
 
     public static bool[] MouseClick;
     public static bool[] MouseDown;
     public static bool[] MouseUp;
 
-    public static void Update(MouseState mouse)
+    public static void Update(MouseState mouse, KeyboardState keyboard)
     {
 
         MouseX = mouse.X;
         MouseY = mouse.Y;
+
+        currentText = "";
+
+        if (keyboard.IsKeyPressed(Keys.A)) currentText += "a";
+        if (keyboard.IsKeyPressed(Keys.B)) currentText += "b";
+        if (keyboard.IsKeyPressed(Keys.C)) currentText += "c";
+        if (keyboard.IsKeyPressed(Keys.D)) currentText += "d";
+        if (keyboard.IsKeyPressed(Keys.E)) currentText += "e";
+        if (keyboard.IsKeyPressed(Keys.F)) currentText += "f";
+        if (keyboard.IsKeyPressed(Keys.G)) currentText += "g";
+        if (keyboard.IsKeyPressed(Keys.H)) currentText += "h";
+        if (keyboard.IsKeyPressed(Keys.I)) currentText += "i";
+        if (keyboard.IsKeyPressed(Keys.J)) currentText += "j";
+        if (keyboard.IsKeyPressed(Keys.K)) currentText += "k";
+        if (keyboard.IsKeyPressed(Keys.L)) currentText += "l";
+        if (keyboard.IsKeyPressed(Keys.M)) currentText += "m";
+        if (keyboard.IsKeyPressed(Keys.N)) currentText += "n";
+        if (keyboard.IsKeyPressed(Keys.O)) currentText += "o";
+        if (keyboard.IsKeyPressed(Keys.P)) currentText += "p";
+        if (keyboard.IsKeyPressed(Keys.Q)) currentText += "q";
+        if (keyboard.IsKeyPressed(Keys.R)) currentText += "r";
+        if (keyboard.IsKeyPressed(Keys.S)) currentText += "s";
+        if (keyboard.IsKeyPressed(Keys.T)) currentText += "t";
+        if (keyboard.IsKeyPressed(Keys.U)) currentText += "u";
+        if (keyboard.IsKeyPressed(Keys.V)) currentText += "v";
+        if (keyboard.IsKeyPressed(Keys.W)) currentText += "w";
+        if (keyboard.IsKeyPressed(Keys.X)) currentText += "x";
+        if (keyboard.IsKeyPressed(Keys.Y)) currentText += "y";
+        if (keyboard.IsKeyPressed(Keys.Z)) currentText += "z";
+
+        if (keyboard.IsKeyPressed(Keys.Comma)) currentText += ",";
+        if (keyboard.IsKeyPressed(Keys.Period)) currentText += ".";
+
+        if (keyboard.IsKeyPressed(Keys.Space)) currentText += " ";
+        if (keyboard.IsKeyPressed(Keys.LeftShift)) currentText = currentText.ToUpper();
+
+        deleteKey = keyboard.IsKeyPressed(Keys.Backspace);
+        enterKey = keyboard.IsKeyPressed(Keys.Enter);
 
         mouseScrollWheel = mouse.ScrollDelta.Y;
 

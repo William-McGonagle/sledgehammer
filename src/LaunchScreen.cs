@@ -63,7 +63,7 @@ namespace Sledge
 
             runTime += RenderTime;
 
-            Input.Update(MouseState);
+            Input.Update(MouseState, KeyboardState);
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 

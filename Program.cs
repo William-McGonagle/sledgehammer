@@ -86,10 +86,10 @@ namespace Sledge
 
             }
 
-            // using (var window = new Window(GameWindowSettings.Default, nativeWindowSettings))
+            // using (var settingsWindow = new SettingsWindow())
             // {
 
-            //     window.Run();
+            //     settingsWindow.Run();
 
             // }
 

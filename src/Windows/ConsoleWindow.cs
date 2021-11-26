@@ -16,6 +16,7 @@ namespace Sledge.Windows
 
         Topbar topbar;
         Container background;
+        TextInput input;
 
         int scrollOffset;
 
@@ -64,6 +65,12 @@ namespace Sledge.Windows
             background.heightConstraint = new FixedConstraint(600);
             background.widthConstraint = new FixedConstraint(800);
 
+            input = new TextInput(
+                new FixedConstraint(800),
+                new FixedConstraint(30),
+                "Test"
+            );
+
             background = new Container(
                 new FixedConstraint(800),
                 new FixedConstraint(600),
@@ -93,7 +100,7 @@ namespace Sledge.Windows
 
             base.OnRenderFrame(e);
 
-            Input.Update(MouseState);
+            Input.Update(MouseState, KeyboardState);
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
@@ -115,6 +122,7 @@ namespace Sledge.Windows
             }
 
             topbar.Render(this, 0, 0);
+            input.Render(this, 0, this.Size.Y - 30);
 
             SwapBuffers();
 

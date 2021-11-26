@@ -68,7 +68,7 @@ namespace Sledge
 
             base.OnRenderFrame(e);
 
-            Input.Update(MouseState);
+            Input.Update(MouseState, KeyboardState);
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 

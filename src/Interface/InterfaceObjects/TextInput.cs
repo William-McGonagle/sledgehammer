@@ -135,7 +135,9 @@ public class TextInput : InterfaceObject
         {
 
             data += Input.currentText;
-            if (Input.deleteKey) data = data.Substring(0, data.Length - 1);
+            if (Input.deleteKey)
+                if (data.Length > 0)
+                    data = data.Substring(0, data.Length - 1);
 
             string blink = "";
 

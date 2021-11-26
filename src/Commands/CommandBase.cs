@@ -8,7 +8,7 @@ public class CommandBase
 
     public string name;
 
-    public static CommandBase[] findAllCommands()
+    public static CommandBase[] FindAllCommands()
     {
 
         Type commandType = typeof(CommandBase);
@@ -29,6 +29,22 @@ public class CommandBase
         }
 
         return outputTypes.ToArray();
+
+    }
+
+    public static CommandBase FindCommandOfName(string name)
+    {
+
+        CommandBase[] commands = FindAllCommands();
+
+        for (int i = 0; i < commands.Length; i++)
+        {
+
+            if (commands[i].name.ToUpper() == name.ToUpper()) return commands[i];
+
+        }
+
+        return null;
 
     }
 

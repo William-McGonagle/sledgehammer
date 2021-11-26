@@ -48,6 +48,25 @@ public class CommandBase
 
     }
 
+    public static void ExecuteCommand(string input)
+    {
+
+        string[] commandParts = input.Split(" ");
+
+        if (commandParts.Length == 0) return;
+
+        string commandName = commandParts[0];
+        CommandBase command = FindCommandOfName(commandName);
+
+        string[] args = new string[commandParts.Length - 1];
+
+        for (int i = 0; i < args.Length; i++)
+            args[i] = commandParts[i + 1];
+
+        command.Run(args);
+
+    }
+
     public CommandBase(string _name)
     {
 

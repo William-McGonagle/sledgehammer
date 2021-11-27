@@ -82,13 +82,8 @@ namespace Sledge
             var settingsWindow = new SettingsWindow();
             var consoleWindow = new ConsoleWindow();
 
-            Thread a = new Thread(settingsWindow.Run);
-            // Thread b = new Thread(consoleWindow.Run);
-
-            a.Start();
-            // b.Start();
-
-            a.Join();
+            settingsWindow.Run();
+            consoleWindow.Run();
 
         }
     }

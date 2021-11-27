@@ -59,15 +59,9 @@ namespace Sledge
 
             base.OnRenderFrame(e);
 
-            var mydelegate = new Action(delegate ()
-            {
-
-                GL.Clear(ClearBufferMask.ColorBufferBit);
-                background.Render(this, 0, 0);
-                InterfaceRenderer.DrawText(this, 600 - ((Application.GetVersion().Length + 2) * 8), 380, 8, "v" + Application.GetVersion(), new Color("#" + StyleSettingsData.singleton.background7));
-
-            });
-            mydelegate.Invoke();
+            GL.Clear(ClearBufferMask.ColorBufferBit);
+            background.Render(this, 0, 0);
+            InterfaceRenderer.DrawText(this, 600 - ((Application.GetVersion().Length + 2) * 8), 380, 8, "v" + Application.GetVersion(), new Color("#" + StyleSettingsData.singleton.background7));
 
             runTime += RenderTime;
 

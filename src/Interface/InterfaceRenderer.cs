@@ -4,7 +4,7 @@ using OpenTK.Windowing.Desktop;
 using Sledge;
 using Sledge.Common;
 
-public class InterfaceRenderer
+public static class InterfaceRenderer
 {
 
     private static float[] _vertices =
@@ -195,7 +195,7 @@ public class InterfaceRenderer
 
     }
 
-    public void Unload()
+    public static void Unload()
     {
 
         // Delete all the resources.

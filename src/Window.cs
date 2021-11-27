@@ -12,7 +12,6 @@ namespace Sledge
     {
 
         Screen currentScreen = new Screen("Start");
-        InterfaceRenderer uiRenderer = new InterfaceRenderer();
 
         Topbar topbar;
 
@@ -102,7 +101,7 @@ namespace Sledge
             GL.BindVertexArray(0);
             GL.UseProgram(0);
 
-            uiRenderer.Unload();
+            InterfaceRenderer.Unload();
 
             base.OnUnload();
         }

@@ -206,39 +206,45 @@ namespace Sledge.Windows
         protected override void OnRenderFrame(FrameEventArgs e)
         {
 
-            base.OnRenderFrame(e);
-
-            Input.Update(MouseState, KeyboardState);
-
-            GL.Clear(ClearBufferMask.ColorBufferBit);
-
-            background.Render(this, 0, 20);
-            topbar.Render(this, 0, 0);
-
-            switch (currentScreen)
+            var mydelegate = new Action(delegate ()
             {
 
-                case 0:
+                base.OnRenderFrame(e);
 
-                    generalScreen.Render(this, 260, 20);
+                Input.Update(MouseState, KeyboardState);
 
-                    break;
+                GL.Clear(ClearBufferMask.ColorBufferBit);
 
-                case 1:
+                background.Render(this, 0, 20);
+                topbar.Render(this, 0, 0);
 
-                    keyScreen.Render(this, 260, 20);
+                switch (currentScreen)
+                {
 
-                    break;
+                    case 0:
 
-                case 2:
+                        generalScreen.Render(this, 260, 20);
 
-                    colorScreen.Render(this, 260, 20);
+                        break;
 
-                    break;
+                    case 1:
 
-            }
+                        keyScreen.Render(this, 260, 20);
 
-            SwapBuffers();
+                        break;
+
+                    case 2:
+
+                        colorScreen.Render(this, 260, 20);
+
+                        break;
+
+                }
+
+                SwapBuffers();
+
+            });
+            mydelegate.Invoke();
 
         }
 

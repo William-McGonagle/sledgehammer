@@ -13,8 +13,6 @@ namespace Sledge
     public class LaunchScreen : GameWindow
     {
 
-        InterfaceRenderer uiRenderer = new InterfaceRenderer();
-
         Container background;
 
         double runTime = 0;
@@ -61,14 +59,19 @@ namespace Sledge
 
             base.OnRenderFrame(e);
 
+            var mydelegate = new Action(delegate ()
+            {
+
+                GL.Clear(ClearBufferMask.ColorBufferBit);
+                background.Render(this, 0, 0);
+                InterfaceRenderer.DrawText(this, 600 - ((Application.GetVersion().Length + 2) * 8), 380, 8, "v" + Application.GetVersion(), new Color("#" + StyleSettingsData.singleton.background7));
+
+            });
+            mydelegate.Invoke();
+
             runTime += RenderTime;
 
             Input.Update(MouseState, KeyboardState);
-
-            GL.Clear(ClearBufferMask.ColorBufferBit);
-
-            background.Render(this, 0, 0);
-            InterfaceRenderer.DrawText(this, 600 - ((Application.GetVersion().Length + 2) * 8), 380, 8, "v" + Application.GetVersion(), new Color("#" + StyleSettingsData.singleton.background7));
 
             SwapBuffers();
 
@@ -103,7 +106,7 @@ namespace Sledge
             GL.BindVertexArray(0);
             GL.UseProgram(0);
 
-            uiRenderer.Unload();
+            InterfaceRenderer.Unload();
 
             base.OnUnload();
         }

@@ -119,34 +119,38 @@ namespace Sledge.Windows
 
         protected override void OnRenderFrame(FrameEventArgs e)
         {
-
-            base.OnRenderFrame(e);
-
-            Input.Update(MouseState, KeyboardState);
-
-            GL.Clear(ClearBufferMask.ColorBufferBit);
-
-            background.Render(this, 0, 20);
-
-            scrollOffset -= (int)Input.mouseScrollWheel;
-
-            if (scrollOffset > ((output.Length + 1) * (fontSize * 3)) + 30 - Size.Y) scrollOffset = ((output.Length + 1) * (fontSize * 3)) + 30 - Size.Y;
-            if (scrollOffset < 0) scrollOffset = 0;
-
-            // InterfaceRenderer.DrawText(this, 500, 20, 6, "" + scrollOffset, new Color("#" + StyleSettingsData.singleton.red));
-            // InterfaceRenderer.DrawText(this, 480, 20, 6, "" + (((output.Length + 2) * 24) - Size.Y), new Color("#" + StyleSettingsData.singleton.green));
-
-            for (int i = 0; i < output.Length; i++)
+            var mydelegate = new Action(delegate ()
             {
+                base.OnRenderFrame(e);
 
-                InterfaceRenderer.DrawText(this, 10, 20 + (i * fontSize * 3) - scrollOffset, fontSize, output[i], new Color("#" + StyleSettingsData.singleton.background7));
+                Input.Update(MouseState, KeyboardState);
 
-            }
+                GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            topbar.Render(this, 0, 0);
-            input.Render(this, 0, this.Size.Y - 30);
+                background.Render(this, 0, 20);
 
-            SwapBuffers();
+                scrollOffset -= (int)Input.mouseScrollWheel;
+
+                if (scrollOffset > ((output.Length + 1) * (fontSize * 3)) + 30 - Size.Y) scrollOffset = ((output.Length + 1) * (fontSize * 3)) + 30 - Size.Y;
+                if (scrollOffset < 0) scrollOffset = 0;
+
+                // InterfaceRenderer.DrawText(this, 500, 20, 6, "" + scrollOffset, new Color("#" + StyleSettingsData.singleton.red));
+                // InterfaceRenderer.DrawText(this, 480, 20, 6, "" + (((output.Length + 2) * 24) - Size.Y), new Color("#" + StyleSettingsData.singleton.green));
+
+                for (int i = 0; i < output.Length; i++)
+                {
+
+                    InterfaceRenderer.DrawText(this, 10, 20 + (i * fontSize * 3) - scrollOffset, fontSize, output[i], new Color("#" + StyleSettingsData.singleton.background7));
+
+                }
+
+                topbar.Render(this, 0, 0);
+                input.Render(this, 0, this.Size.Y - 30);
+
+                SwapBuffers();
+
+            });
+            mydelegate.Invoke();
 
         }
 

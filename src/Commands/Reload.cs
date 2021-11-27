@@ -14,7 +14,7 @@ public class ReloadCommand : CommandBase
     public override void Run(string[] args)
     {
 
-        Application.reload = true;
+        ConsoleWindow.WriteLine("Reload command not currently supported.");
 
     }
 

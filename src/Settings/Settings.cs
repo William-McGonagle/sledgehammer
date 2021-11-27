@@ -11,6 +11,11 @@ namespace Sledge
         public string styleScheme = "./styles/original.cfg";
         public bool useLaunchScreen = true;
 
+        // Console
+        public int consoleFontSize = 8;
+        public string userKarat = "$~ ";
+        public string computerKarat = "!~ ";
+
         // Constructors
 
         public SettingsData()

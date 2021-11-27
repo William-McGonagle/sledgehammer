@@ -18,6 +18,8 @@ namespace Sledge.Windows
         Container background;
         TextInput input;
 
+        int fontSize = 8;
+
         int scrollOffset;
 
         public static string[] output = { };
@@ -58,6 +60,9 @@ namespace Sledge.Windows
 
             InterfaceRenderer.Load();
 
+            // Load Data From Config
+            fontSize = SettingsData.singleton.consoleFontSize;
+
             // Load Components
             topbar = new Topbar(this) { maxButtonEnabled = true };
 
@@ -79,7 +84,7 @@ namespace Sledge.Windows
                     input.data = "";
 
                     // Add Input Data to Console
-                    WriteLine("$~ " + inputData);
+                    WriteLine(SettingsData.singleton.userKarat + inputData);
 
                     // Check for Commands
                     CommandBase.ParseCommandString(inputData);
@@ -125,8 +130,8 @@ namespace Sledge.Windows
 
             scrollOffset -= (int)Input.mouseScrollWheel;
 
-            if (scrollOffset > ((output.Length + 1) * 24) + 30 - Size.Y) scrollOffset--;
-            if (scrollOffset < 0) scrollOffset++;
+            if (scrollOffset > ((output.Length + 1) * (fontSize * 3)) + 30 - Size.Y) scrollOffset = ((output.Length + 1) * (fontSize * 3)) + 30 - Size.Y;
+            if (scrollOffset < 0) scrollOffset = 0;
 
             // InterfaceRenderer.DrawText(this, 500, 20, 6, "" + scrollOffset, new Color("#" + StyleSettingsData.singleton.red));
             // InterfaceRenderer.DrawText(this, 480, 20, 6, "" + (((output.Length + 2) * 24) - Size.Y), new Color("#" + StyleSettingsData.singleton.green));
@@ -134,7 +139,7 @@ namespace Sledge.Windows
             for (int i = 0; i < output.Length; i++)
             {
 
-                InterfaceRenderer.DrawText(this, 10, 20 + (i * 24) - scrollOffset, 8, output[i], new Color("#" + StyleSettingsData.singleton.background7));
+                InterfaceRenderer.DrawText(this, 10, 20 + (i * fontSize * 3) - scrollOffset, fontSize, output[i], new Color("#" + StyleSettingsData.singleton.background7));
 
             }
 

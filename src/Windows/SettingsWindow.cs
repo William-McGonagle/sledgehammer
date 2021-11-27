@@ -164,7 +164,7 @@ namespace Sledge.Windows
                     onClick = delegate ()
                     {
 
-                        ConsoleWindow.WriteLine("cscheme " + Path.GetFileName(colorSchemeFiles[currentNum]));
+                        ConsoleWindow.WriteLine("!~ cscheme " + Path.GetFileName(colorSchemeFiles[currentNum]));
                         CommandBase.ParseCommandString("cscheme " + Path.GetFileName(colorSchemeFiles[currentNum]));
 
                         this.OnLoad();

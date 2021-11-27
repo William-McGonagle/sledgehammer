@@ -22,6 +22,8 @@ public class ColorSchemeCommand : CommandBase
 
         StyleSettingsData.singleton = new StyleSettingsData(Application.PersistentDataPath() + "/styles/" + Path.GetFileName(path));
 
+        ConsoleWindow.WriteLine($"Set Color Scheme to '{"./styles/" + Path.GetFileName(path)}'");
+
     }
 
 }

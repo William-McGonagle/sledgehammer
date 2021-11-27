@@ -49,14 +49,9 @@ public class CommandBase
 
     }
 
-    public static void ExecuteCommand(string input)
+    public static void ExecuteCommand(string commandName, string[] args)
     {
 
-        string[] commandParts = input.Split(" ");
-
-        if (commandParts.Length == 0) return;
-
-        string commandName = commandParts[0];
         CommandBase command = FindCommandOfName(commandName);
 
         if (command == null)
@@ -67,12 +62,78 @@ public class CommandBase
 
         }
 
-        string[] args = new string[commandParts.Length - 1];
-
-        for (int i = 0; i < args.Length; i++)
-            args[i] = commandParts[i + 1];
-
         command.Run(args);
+
+    }
+
+    public static void ParseCommandString(string input)
+    {
+
+        int index = 0;
+
+        while (index < input.Length)
+        {
+
+            string commandName = "";
+            List<string> args = new List<string>();
+            int state = 0;
+            int argIndex = 0;
+
+            while (index < input.Length && input[index] != ';')
+            {
+
+                switch (state)
+                {
+
+                    case 0:
+
+                        if (input[index] == ' ')
+                        {
+
+                            if (commandName == "")
+                            {
+
+                                break;
+
+                            }
+
+                            state = 1;
+                            args.Add("");
+                            break;
+
+                        }
+
+                        commandName += input[index];
+
+                        break;
+
+                    case 1:
+
+                        if (input[index] == ' ')
+                        {
+
+                            args.Add("");
+                            argIndex++;
+                            state = 1;
+                            break;
+
+                        }
+
+                        args[argIndex] = args[argIndex] + input[index];
+
+                        break;
+
+                }
+
+                index++;
+
+            }
+
+            ExecuteCommand(commandName, args.ToArray());
+
+            index++;
+
+        }
 
     }
 

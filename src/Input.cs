@@ -54,6 +54,7 @@ public class Input
 
         if (keyboard.IsKeyPressed(Keys.Comma)) currentText += ",";
         if (keyboard.IsKeyPressed(Keys.Period)) currentText += ".";
+        if (keyboard.IsKeyPressed(Keys.Semicolon)) currentText += ";";
 
         if (keyboard.IsKeyPressed(Keys.Space)) currentText += " ";
         if (keyboard.IsKeyPressed(Keys.LeftShift)) currentText = currentText.ToUpper();

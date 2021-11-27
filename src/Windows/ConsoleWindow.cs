@@ -82,7 +82,7 @@ namespace Sledge.Windows
                     WriteLine("$~ " + inputData);
 
                     // Check for Commands
-                    CommandBase.ExecuteCommand(inputData);
+                    CommandBase.ParseCommandString(inputData);
 
                 }
 

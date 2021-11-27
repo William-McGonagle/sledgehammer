@@ -6,8 +6,6 @@ using System;
 public class Application
 {
 
-    public static bool reload = false;
-
     public static void ConfigureSystem()
     {
 

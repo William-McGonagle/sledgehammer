@@ -10,12 +10,60 @@ public class Input
     public static string currentText;
     public static bool deleteKey;
     public static bool enterKey;
+    public static bool commandKey;
 
     public static float mouseScrollWheel;
 
     public static bool[] MouseClick;
     public static bool[] MouseDown;
     public static bool[] MouseUp;
+
+    public static float GetLetterDistance(char a, char b)
+    {
+
+        string[] keyboard = new string[] {
+            "1234567890-=",
+            "qwertyuiop[]",
+            "asdfghjkl;'",
+            "zxcvbnm,./",
+            "^⌥⌘ "
+        };
+
+        int rowA = -1;
+        int colA = -1;
+        int rowB = -1;
+        int colB = -1;
+
+        for (int y = 0; y < keyboard.Length; y++)
+        {
+            for (int x = 0; x < keyboard[y].Length; x++)
+            {
+
+                if (keyboard[y][x] == a)
+                {
+
+                    rowA = x;
+                    colA = y;
+
+                }
+
+                if (keyboard[y][x] == b)
+                {
+
+                    rowB = x;
+                    colB = y;
+
+                }
+
+            }
+        }
+
+        int distX = rowA - rowB;
+        int distY = colA - colB;
+
+        return (float)Math.Sqrt(distX * distX + distY * distY);
+
+    }
 
     public static void Update(MouseState mouse, KeyboardState keyboard)
     {
@@ -57,13 +105,14 @@ public class Input
         if (keyboard.IsKeyPressed(Keys.Semicolon)) currentText += ";";
         if (keyboard.IsKeyPressed(Keys.Slash)) currentText += "/";
         if (keyboard.IsKeyPressed(Keys.Backslash)) currentText += "\\";
-        if (keyboard.IsKeyPressed(Keys.D1) && keyboard.IsKeyPressed(Keys.LeftShift)) currentText += "!";
+        if (keyboard.IsKeyPressed(Keys.D1) && keyboard.IsKeyDown(Keys.LeftShift)) currentText += "!";
 
         if (keyboard.IsKeyPressed(Keys.Space)) currentText += " ";
         if (keyboard.IsKeyPressed(Keys.LeftShift)) currentText = currentText.ToUpper();
 
         deleteKey = keyboard.IsKeyPressed(Keys.Backspace);
         enterKey = keyboard.IsKeyPressed(Keys.Enter);
+        commandKey = keyboard.IsKeyDown(Keys.LeftControl);
 
         mouseScrollWheel = mouse.ScrollDelta.Y;
 

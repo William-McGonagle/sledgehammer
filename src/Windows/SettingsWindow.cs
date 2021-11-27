@@ -164,12 +164,8 @@ namespace Sledge.Windows
                     onClick = delegate ()
                     {
 
-                        SettingsData.singleton.styleScheme = "./styles/" + Path.GetFileName(colorSchemeFiles[currentNum]);
-                        SettingsData.singleton.Save(Application.PersistentDataPath() + "/settings.cfg");
-
-                        StyleSettingsData.singleton = new StyleSettingsData(Application.PersistentDataPath() + "/styles/" + Path.GetFileName(colorSchemeFiles[currentNum]));
-
-                        ConsoleWindow.WriteLine("set_color_scheme " + Path.GetFileName(colorSchemeFiles[currentNum]));
+                        ConsoleWindow.WriteLine("cscheme " + Path.GetFileName(colorSchemeFiles[currentNum]));
+                        CommandBase.ParseCommandString("cscheme " + Path.GetFileName(colorSchemeFiles[currentNum]));
 
                         this.OnLoad();
 

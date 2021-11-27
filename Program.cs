@@ -79,7 +79,7 @@ namespace Sledge
 
             }
 
-            using (var consoleWindow = new ConsoleWindow())
+            using (var consoleWindow = new SettingsWindow())
             {
 
                 consoleWindow.Run();

@@ -57,6 +57,7 @@ public class Input
         if (keyboard.IsKeyPressed(Keys.Semicolon)) currentText += ";";
         if (keyboard.IsKeyPressed(Keys.Slash)) currentText += "/";
         if (keyboard.IsKeyPressed(Keys.Backslash)) currentText += "\\";
+        if (keyboard.IsKeyPressed(Keys.D1) && keyboard.IsKeyPressed(Keys.LeftShift)) currentText += "!";
 
         if (keyboard.IsKeyPressed(Keys.Space)) currentText += " ";
         if (keyboard.IsKeyPressed(Keys.LeftShift)) currentText = currentText.ToUpper();

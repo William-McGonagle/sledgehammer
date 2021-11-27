@@ -122,7 +122,11 @@ namespace Sledge.Windows
                 new FixedConstraint(600),
                 new Color("#" + StyleSettingsData.singleton.background0),
                 new InterfaceObject[] {
-
+                    new Text(
+                        new FixedConstraint(800 - 260),
+                        new FixedConstraint(80),
+                        "General"
+                    )
                 }
             );
 

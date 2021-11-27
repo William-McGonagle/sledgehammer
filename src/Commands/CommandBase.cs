@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Sledge.Windows;
 
 public class CommandBase
 {
@@ -20,7 +21,7 @@ public class CommandBase
 
             if (!types[i].IsClass) continue;
             if (types[i] == commandType) continue;
-            if (commandType.IsAssignableFrom(types[i])) continue;
+            if (!types[i].IsSubclassOf(commandType)) continue;
 
             CommandBase output = (CommandBase)Activator.CreateInstance(types[i]);
 
@@ -57,6 +58,14 @@ public class CommandBase
 
         string commandName = commandParts[0];
         CommandBase command = FindCommandOfName(commandName);
+
+        if (command == null)
+        {
+
+            ConsoleWindow.WriteLine($"Command '{commandName.ToLower()}' not found.");
+            return;
+
+        }
 
         string[] args = new string[commandParts.Length - 1];
 

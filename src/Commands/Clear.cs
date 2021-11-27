@@ -1,3 +1,5 @@
+using Sledge.Windows;
+
 public class ClearCommand : CommandBase
 {
 
@@ -11,7 +13,7 @@ public class ClearCommand : CommandBase
     public override void Run(string[] args)
     {
 
-
+        ConsoleWindow.output = new string[0];
 
     }
 

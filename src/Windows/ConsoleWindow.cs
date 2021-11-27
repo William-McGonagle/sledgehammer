@@ -82,12 +82,7 @@ namespace Sledge.Windows
                     WriteLine("$~ " + inputData);
 
                     // Check for Commands
-                    if (inputData == "close")
-                    {
-
-                        Close();
-
-                    }
+                    CommandBase.ExecuteCommand(inputData);
 
                 }
 

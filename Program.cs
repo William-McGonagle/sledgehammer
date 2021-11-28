@@ -79,10 +79,10 @@ namespace Sledge
 
             }
 
-            var settingsWindow = new SettingsWindow();
+            // var settingsWindow = new SettingsWindow();
             var consoleWindow = new ConsoleWindow();
 
-            settingsWindow.Run();
+            // settingsWindow.Run();
             consoleWindow.Run();
 
         }

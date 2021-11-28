@@ -21,6 +21,8 @@ public class Topbar : InterfaceObject
     public bool maxButtonEnabled = true;
     public bool drawBackground = true;
 
+    public bool trackFPS = false;
+
     public Topbar(GameWindow window)
     {
 
@@ -76,6 +78,8 @@ public class Topbar : InterfaceObject
 
         };
 
+        trackFPS = SettingsData.singleton.topbarFPS;
+
     }
 
     public override void Render(GameWindow window, int x, int y)
@@ -118,6 +122,8 @@ public class Topbar : InterfaceObject
         closeButton.Render(window, 0, 0);
         if (minButtonEnabled) minButton.Render(window, 20, 0);
         if (maxButtonEnabled) maxButton.Render(window, 40, 0);
+
+        if (trackFPS) InterfaceRenderer.DrawText(window, window.Size.X - 20, 2, 8, "" + (int)(1 / (window.RenderTime + window.UpdateTime)), new Color("#" + StyleSettingsData.singleton.background6));
 
     }
 

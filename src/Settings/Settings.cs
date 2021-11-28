@@ -10,6 +10,7 @@ namespace Sledge
 
         public string styleScheme = "./styles/original.cfg";
         public bool useLaunchScreen = true;
+        public bool topbarFPS = true;
 
         // Console
         public int consoleFontSize = 8;

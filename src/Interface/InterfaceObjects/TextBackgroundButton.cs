@@ -19,6 +19,7 @@ public class TextBackgroundButton : InterfaceObject
     public int horizontalAlign = 0; // 0 - left, 1 - middle, 2 - right
 
     public int padding = 10;
+    public int fontSize = 10;
 
     public TextBackgroundButton(string _data)
     {
@@ -72,7 +73,7 @@ public class TextBackgroundButton : InterfaceObject
 
             case 1:
 
-                textY = _y + (_height / 2) - 10;
+                textY = _y + (_height / 2) - fontSize;
 
                 break;
 
@@ -98,7 +99,7 @@ public class TextBackgroundButton : InterfaceObject
 
             case 1:
 
-                textX = _x + (_width / 2) - 10;
+                textX = _x + (_width / 2) - (fontSize * data.Length / 2);
 
                 break;
 
@@ -121,14 +122,14 @@ public class TextBackgroundButton : InterfaceObject
                     onClick();
 
             InterfaceRenderer.DrawToScreen(window, _x, _y, _width, _height, highlightColor);
-            InterfaceRenderer.DrawText(window, textX, textY, 10, data, textColor);
+            InterfaceRenderer.DrawText(window, textX, textY, fontSize, data, textColor);
 
         }
         else
         {
 
             InterfaceRenderer.DrawToScreen(window, _x, _y, _width, _height, defaultColor);
-            InterfaceRenderer.DrawText(window, textX, textY, 10, data, textColor);
+            InterfaceRenderer.DrawText(window, textX, textY, fontSize, data, textColor);
 
         }
 

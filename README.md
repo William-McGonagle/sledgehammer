@@ -43,7 +43,7 @@ Sledge is a community driven project. Any feature that you want can be submitted
 
 <img alt="License" src="https://github.com/William-McGonagle/sledgehammer/blob/master/.github/media/headers/license.png?raw=true">
 
-Copyright © 2021 AMVC-Gaming
+Copyright © 2021 William McGonagle
 
 An entity that makes an excess of $12,500 quarterly must purchase an enterprise license. To purchase an enterprise license, please contact [William McGonagle](mailto:wpmcgonagle@gmail.com).
 
